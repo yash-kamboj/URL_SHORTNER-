@@ -91,7 +91,6 @@ def login():
 
     return render_template_string("""
         <h2>Login</h2>
-        <!-- FIX: Added colon to the for loop tag -->
         {% for category, message in get_flashed_messages(with_categories=true): %}
             <p style="color: red;">{{ message }}</p>
         {% endfor %}
@@ -129,7 +128,6 @@ def home():
             <p>Please <a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a> to shorten URLs.</p>
         {% endif %}
 
-        <!-- FIX: Added colon to the flash message for loop tag -->
         {% for category, message in get_flashed_messages(with_categories=true): %}
             <p style="color: {% if category == 'success': %}green{% else: %}red{% endif %};">
                 <!-- Use the safe filter to render HTML links from flash() -->
@@ -174,4 +172,5 @@ def redirect_to_url(code):
 
 
 if __name__== "__main__":
+
     app.run(debug=True)
